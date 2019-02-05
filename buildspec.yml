@@ -14,7 +14,6 @@ phases:
         - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' hello-k8s.yml
         - $(aws ecr get-login --no-include-email)
         - export KUBECONFIG=$HOME/.kube/config
-        - EKS_CLUSTER_NAME=TestEKS
   build:
     commands:
       - docker build --tag $REPOSITORY_URI:$TAG .
